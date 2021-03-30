@@ -14,7 +14,7 @@ while(True):
         break
     #if press s will save the image to a file called save.jpg
     elif cv2.waitKey(1) == ord('s'):
-        cv2.imwrite('save.jpg', frame)
+        cv2.imwrite('test.jpg', frame)
 
 # When everything done, release the capture
 cap.release()
