@@ -7,7 +7,7 @@ while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('cas4.xml')
     
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
