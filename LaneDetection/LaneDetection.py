@@ -46,6 +46,6 @@ lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineL
 line_image = display_lines(lane_image, lines)
 combo_image = cv2.addWeighted(lane_image, 0.8, line_image, 1, 1)
 
-cv2.imshow("result", canny)
+cv2.imshow(combo_image)
 # cv2.imshow("result", region_of_interest(canny)
 cv2.waitKey(0)

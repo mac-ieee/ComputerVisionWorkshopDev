@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
 from matplotlib import pyplot as plt
+from google.colab.patches import cv2_imshow
 
 
 def lanesDetection(img, image_index):
@@ -30,15 +31,15 @@ def lanesDetection(img, image_index):
 
 #region of interest for an image
 def region_of_interest_image(image):
-	height = image.shape[0]
-	polygons = np.array([
-	[(0, height), (1280, height), (642, 284)]
-	])
-	mask = np.zeros_like(image)
-	cv.fillPoly(mask, polygons, 255)
-	#6 bitwise and
-	masked_image = cv.bitwise_and(image, mask)
-	return masked_image
+    height = image.shape[0]
+    polygons = np.array([
+    [(0, height), (1280, height), (642, 284)]
+    ])
+    mask = np.zeros_like(image)
+    cv.fillPoly(mask, polygons, 255)
+    #6 bitwise and
+    masked_image = cv.bitwise_and(image, mask)
+    return masked_image
 
 #region of interest for a video
 def region_of_interest(img, vertices):
@@ -51,19 +52,19 @@ def region_of_interest(img, vertices):
 
 #shows lane lines on masked image
 def display_lines(image, lines):
-	line_image = np.zeros_like(image)
-	if lines is not None:
-		for line in lines:
-			x1, y1, x2, y2 = line.reshape(4)
-			cv.line(line_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
-	return line_image
+    line_image = np.zeros_like(image)
+    if lines is not None:
+        for line in lines:
+            x1, y1, x2, y2 = line.reshape(4)
+            cv.line(line_image, (x1, y1), (x2, y2), (255, 0, 0), 10)
+    return line_image
 
 def videoLanes():
-    cap = cv.VideoCapture('./img/Lane.mp4')
+    cap = cv.VideoCapture('test_laneVideo.mp4')
     while(cap.isOpened()):
         ret, frame = cap.read()
         frame = lanesDetection(frame, 0)
-        cv.imshow('Lanes Detection', frame)
+        cv2_imshow(frame)
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
 
