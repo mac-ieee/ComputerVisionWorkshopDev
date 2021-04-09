@@ -1,1 +1,1 @@
-# OpenCV-Workshop
+# Computer Vision Workshop Development 
