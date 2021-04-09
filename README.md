@@ -2,11 +2,13 @@
 
 # Our Team
 
+## Workshop Code:
 Object detection
 * Sherry Liu 
 * Isaiah Ngou 
 * Yang Xu
 * Hong Sung Park
+* Calvin Suen
 
 Lane Detection
 * Yang Xu
